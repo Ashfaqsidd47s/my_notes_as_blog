@@ -19,7 +19,7 @@ export default function CodeBox({code, title}) {
         <p className=' text-sm'>{title}</p>
         <div className='flex items-center gap-3'>
             <span>copy</span>
-            <span className=' cursor-pointer hover:bg-gray-200 p-2 rounded-md'  >
+            <span className=' cursor-pointer hover:bg-gray-200 p-2 rounded-md' onClick={handleCopy}  >
                 <MdContentCopy  />
             </span> 
         </div>

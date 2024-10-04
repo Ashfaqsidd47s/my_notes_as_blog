@@ -1,4 +1,3 @@
-import CodeBox from '@/components/codeBox/CodeBox'
 import { B } from '@/components/typography/B'
 import { Blockquote } from '@/components/typography/Blockquote'
 import { H1 } from '@/components/typography/H1'
@@ -8,9 +7,86 @@ import { H4 } from '@/components/typography/H4'
 import { List } from '@/components/typography/List'
 import { P } from '@/components/typography/P'
 import Section from '@/components/typography/Section'
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { TableProperties } from 'lucide-react'
 import React from 'react'
 
 export default function Tree() {
+  const properties = [
+    {
+      property: "Node",
+      description: "Element containing data and references to children"
+    },
+    {
+      property: "Root",
+      description: "Topmost node of the binary tree"
+    },
+    {
+      property: "Leaf Node",
+      description: "Node with no children"
+    },
+    {
+      property: "Internal Node",
+      description: "Node with at least one child"
+    },
+    {
+      property: "Height",
+      description: "Longest path from root to any leaf"
+    },
+    {
+      property: "Depth",
+      description: "Number of edges from root to a node"
+    },
+    {
+      property: "Level",
+      description: "Same as depth, representing the distance from the root"
+    },
+    {
+      property: "Subtree",
+      description: "Tree consisting of a node and its descendants"
+    },
+    {
+      property: "Balanced Binary Tree",
+      description: "Tree where the height difference between left and right subtree is ≤ 1"
+    },
+    {
+      property: "Full Binary Tree",
+      description: "Tree where every node has 0 or 2 children"
+    },
+    {
+      property: "Complete Binary Tree",
+      description: "Tree where all levels are fully filled except possibly the last"
+    },
+    {
+      property: "Perfect Binary Tree",
+      description: "Tree where all internal nodes have 2 children and all leaf nodes are at the same level"
+    },
+    {
+      property: "Degenerate Tree",
+      description: "Tree where each node has only one child"
+    },
+    {
+      property: "Skewed Binary Tree",
+      description: "Tree where nodes are skewed to either left or right"
+    },
+    {
+      property: "Binary Search Tree (BST)",
+      description: "Binary tree with ordered values"
+    },
+    {
+      property: "Size",
+      description: "Total number of nodes in the tree"
+    },
+    {
+      property: "Max nodes at level l",
+      description: "2^l nodes at level l"
+    },
+    {
+      property: "Max nodes in a tree of height h",
+      description: "2^(h+1) - 1"
+    }
+  ]
+
   return (
     <div>
       <H1>Tree</H1>
@@ -173,17 +249,23 @@ export default function Tree() {
           </li>
         </List>
       </Section>
-      <CodeBox 
-        title="TreeNode.java" 
-        code={
-          `class TreeNode{
-        int val;
-        TreeNode left;
-        TreeNode right;
-          }`
-      } 
-
-      />
+      <div className='w-full'>
+      <Table className=" m-2 w-[100%-0.25rem]  md:w-[70%] shadow-md" >
+        <TableCaption>Tree property summery</TableCaption>
+        <TableHeader className= " shadow-sm">
+          <TableHead >Property</TableHead>
+          <TableHead >Description</TableHead>
+        </TableHeader>
+        <TableBody>
+          {properties.map((item, i) => (
+            <TableRow key={i}>
+              <TableCell className=" font-bold" >{item.property}</TableCell>
+              <TableCell>{item.description}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      </div>
     </div>
   )
 }
